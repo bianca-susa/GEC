@@ -199,6 +199,6 @@ def correct_grammar(input_text, num_return_sequences):
     return tgt_text
 
 
-text = 'El nu vreau s-ă vină.'
+text = 'Săi ținem pumnii să se distreze..'
 print(correct_grammar(text, num_return_sequences=2))
 
