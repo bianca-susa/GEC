@@ -10,7 +10,8 @@ from itertools import chain
 from string import punctuation
 
 import nltk
-# nltk.download('punkt')
+nltk.download('punkt')
+nltk.download('punkt_tab')
 from nltk.tokenize import sent_tokenize
 
 import pandas as pd
@@ -44,8 +45,8 @@ pd.set_option('display.max_colwidth', None)
 # df = pd.read_csv('C:/Users/bibis/PycharmProjects/GEC/app/data/W-sentence.csv')
 # print(df.shape)
 
-test_df = pd.read_csv('C:/Users/bibis/PycharmProjects/GEC/app/data/test.csv')
-train_df = pd.read_csv('C:/Users/bibis/PycharmProjects/GEC/app/data/train.csv')
+test_df = pd.read_csv('C:/Users/bibis/PycharmProjects/GEC/app/data/test_initial.csv')
+train_df = pd.read_csv('C:/Users/bibis/PycharmProjects/GEC/app/data/train_initial.csv')
 
 # print(df.head())
 
@@ -183,6 +184,9 @@ trainer = Seq2SeqTrainer(model=model,
 
 
 trainer.train()
+eval_results = trainer.evaluate()
+print(eval_results)
+
 
 import torch
 from transformers import T5Tokenizer, T5ForConditionalGeneration
